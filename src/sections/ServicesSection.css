@@ -1,0 +1,43 @@
+/* src/sections/ServicesSection.css */
+
+.services {
+    background-color: var(--background-color); /* Background adapts to mode */
+    color: var(--text-color); /* Text color adapts to mode */
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.services h2 {
+    color: var(--primary-color); /* Heading color adapts to mode */
+    margin-bottom: 20px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--background-color); /* Card background adapts to mode */
+    color: var(--text-color); /* Card text color adapts to mode */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--primary-color); /* Card title color adapts to mode */
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--text-color); /* Card paragraph text color adapts to mode */
+}

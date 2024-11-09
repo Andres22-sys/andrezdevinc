@@ -1,0 +1,83 @@
+/* src/sections/ProcessSection.css */
+
+.process {
+    background-color:  #242424; /* Adapts to light or dark mode */
+    color: var(--text-color); /* Applies global text color */
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.process h2 {
+    color: var(--primary-color); /* Primary color for heading */
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.process p {
+    color: white; /* Ensure paragraph uses global text color */
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+}
+
+.step-card {
+    background-color: var(--background-color); /* Adapts to mode */
+    color: var(--text-color); /* Text inside the card uses global text color */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-icon {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.step-card h3 {
+    font-size: 1.3em;
+    color: var(--text-color); /* Card title uses global text color */
+    margin-bottom: 10px;
+}
+
+.step-card p {
+    color: var(--text-color); /* Card paragraph text uses global text color */
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+/* Desktop and Tablet View */
+@media (min-width: 768px) {
+    .process {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts to fit screen size */
+    }
+}
+
+/* Mobile View */
+@media (max-width: 767px) {
+    .step-card {
+        grid-template-columns: 1fr;  /* Single-column on mobile */
+        grid-auto-rows: minmax(150px, auto); /* Each row has a minimum height */
+    }
+    
+}

@@ -1,0 +1,16 @@
+/* src/components/Button.css */
+
+.button {
+    background-color: var(--primary-color); /* Button background color */
+    color: var(--text-color); /* Text color adapts to global text color */
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--secondary-color); /* Button changes to secondary color on hover */
+}

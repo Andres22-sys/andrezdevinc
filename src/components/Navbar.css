@@ -1,0 +1,132 @@
+/* src/components/Navbar.css */
+
+/* Navbar Basic Styling */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures the navbar stays above other content */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    box-sizing: border-box;
+}
+
+/* src/components/Navbar.css */
+
+.navbar-logo img {
+    width: 50px;
+    height: auto;
+    transition: filter 0.3s ease; /* Smooth transition when switching modes */
+}
+
+/* Dark mode - Invert the color to create a white logo effect */
+body.dark-mode .navbar-logo img {
+    filter: invert(1); /* Inverts color, making black logos appear white */
+}
+
+
+/* Navbar Links (Desktop) */
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin-left: auto;
+}
+
+.navbar-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Dark Mode Toggle Button Styling */
+.dark-mode-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1em;
+    cursor: pointer;
+    padding: 10px;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* Hide Menu Toggle Button on Desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        padding: 10px 15px;
+    }
+
+    /* Hide Dark Mode Toggle on Mobile */
+    .dark-mode-toggle {
+        display: none;
+    }
+
+    /* Show Menu Toggle Button on Mobile */
+    .menu-toggle {
+        display: block;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        cursor: pointer;
+        margin-left: auto;
+    }
+
+    /* Slide-in Navbar Links */
+    .navbar-links {
+        position: fixed;
+        top: 0;
+        right: -100%;  /* Hidden off-screen to the right */
+        height: 100%;
+        width: 250px;
+        background-color: var(--background-color);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        transition: right 0.3s ease;  /* Smooth slide-in effect */
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Show the menu when open */
+    .navbar-links.open {
+        right: 0;  /* Slide into view */
+    }
+
+    .navbar-links a {
+        padding: 15px 0;
+        width: 100%;
+        text-align: left;
+        font-size: 1em;
+        color: var(--text-color);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Change Link Color on Hover */
+    .navbar-links a:hover {
+        color: var(--primary-color);
+    }
+}

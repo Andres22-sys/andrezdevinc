@@ -1,0 +1,95 @@
+/* src/App.css or src/index.css */
+/* src/App.css or src/index.css */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+/* Default colors for light mode (optional) */
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  font-family: 'Montserrat', sans-serif;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+/* Global Container Styling */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+}
+
+/* Responsive Images */
+img {
+  max-width: 100%; /* Keeps images within their container */
+  height: auto;
+}
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #8e44ad; /* Light purple */
+  --secondary-color: #bb86fc; /* Accent color */
+}
+
+/* Dark mode color scheme (purple and black theme) */
+body.dark-mode {
+  --background-color: #121212; /* Dark background */
+  --text-color: #f5f5f5; /* Light text */
+  --primary-color: #6a0dad; /* Dark purple */
+  --secondary-color: #bb86fc; /* Accent color */
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; /* Sets it to SemiBold */
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  font-size: 16px; /* Adjust base font size as needed */
+}
+
+
+h1, h3 {
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 2.5em; /* Standard size for all section headings */
+  color: var(--primary-color); /* Optional: Use primary color */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+p, a {
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* Tablet (768px - 1199px) */
+@media (max-width: 1199px) {
+  body {
+      font-size: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+      font-size: 14px;
+  }
+}
