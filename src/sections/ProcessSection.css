@@ -1,7 +1,8 @@
 /* src/sections/ProcessSection.css */
 
+/* Base Styles */
 .process {
-    background-color:  #242424; /* Adapts to light or dark mode */
+    background-color: #242424; /* Adapts to light or dark mode */
     color: var(--text-color); /* Applies global text color */
     text-align: center;
     padding: 60px 20px;
@@ -22,14 +23,16 @@
     margin-right: auto;
 }
 
+/* Grid Container */
 .process-steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(4, 1fr); /* Default for desktop: 3 columns */
     gap: 20px;
     justify-items: center;
     padding: 20px;
 }
 
+/* Individual Grid Items */
 .step-card {
     background-color: var(--background-color); /* Adapts to mode */
     color: var(--text-color); /* Text inside the card uses global text color */
@@ -66,18 +69,18 @@
     line-height: 1.5;
 }
 
-/* Desktop and Tablet View */
-@media (min-width: 768px) {
-    .process {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusts to fit screen size */
+/* Responsive Adjustments */
+
+/* Tablet View (768px–1024px): 2x2 Grid */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
     }
 }
 
-/* Mobile View */
+/* Mobile View (Below 768px): 1x1 Grid */
 @media (max-width: 767px) {
-    .step-card {
-        grid-template-columns: 1fr;  /* Single-column on mobile */
-        grid-auto-rows: minmax(150px, auto); /* Each row has a minimum height */
+    .process-steps {
+        grid-template-columns: 1fr; /* Single-column layout for mobile */
     }
-    
 }

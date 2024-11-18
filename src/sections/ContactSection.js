@@ -57,6 +57,7 @@ function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        autoComplete="name" /* Enables autofill for user's full name */
                     />
                 </label>
                 <label>
@@ -67,6 +68,7 @@ function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        autoComplete="email" /* Enables autofill for user's email address */
                     />
                 </label>
                 <label>
@@ -76,10 +78,12 @@ function ContactSection() {
                         value={formData.message}
                         onChange={handleChange}
                         required
+                        autoComplete="off" /* Disables autofill for free-text fields */
                     ></textarea>
                 </label>
                 <button type="submit" className="submit-button">Send Message</button>
             </form>
+
         </section>
     );
 }
