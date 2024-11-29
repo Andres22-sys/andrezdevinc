@@ -25,7 +25,7 @@ function PortfolioSection() {
                     <p>A website for a welding company.</p>
                 </div>
                 <div className="portfolio-card">
-                    <a href="https://andres22-sys.github.io/Cinemaniacs_website/" target="_blank"
+                    <a href="https://cinamaniac-web.vercel.app/" target="_blank"
                        rel="noopener noreferrer">
                         <img src={project2} alt="Cinemaniacs"/>
                     </a>
@@ -33,7 +33,7 @@ function PortfolioSection() {
                     <p>A landing page for a movie review club.</p>
                 </div>
                 <div className="portfolio-card">
-                    <a href="https://andres22-sys.github.io/Huckleberry_pastry/?#home" target="_blank"
+                    <a href="https://pastry-web.vercel.app/" target="_blank"
                        rel="noopener noreferrer">
                         <img src={project3} alt="Project 3"/>
                     </a>
@@ -41,7 +41,7 @@ function PortfolioSection() {
                     <p>A landing page for a pastry company.</p>
                 </div>
                 <div className="portfolio-card">
-                    <a href="https://andres22-sys.github.io/tea-cozy-web-project/" target="_blank"
+                    <a href="https://teashop-web.vercel.app/" target="_blank"
                        rel="noopener noreferrer">
                         <img src={project4} alt="Project 4"/>
                     </a>
