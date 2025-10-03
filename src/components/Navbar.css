@@ -50,18 +50,38 @@ body.dark-mode .navbar-logo img {
 
 /* Dark Mode Toggle Button Styling */
 .dark-mode-toggle {
-    background: none;
+    position: relative;
+    width: 50px;
+    height: 26px;
+    background-color: var(--text-color);
+    border-radius: 50px;
     border: none;
-    color: var(--text-color);
-    font-size: 1em;
     cursor: pointer;
-    padding: 10px;
+    outline: none;
     margin-left: 20px;
-    transition: color 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-.dark-mode-toggle:hover {
-    color: var(--primary-color);
+/* The circle inside the toggle */
+.dark-mode-toggle::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--background-color);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* When dark mode is active */
+body.dark-mode .dark-mode-toggle {
+    background-color: var(--primary-color);
+}
+
+body.dark-mode .dark-mode-toggle::before {
+    transform: translateX(24px);
 }
 
 /* Hide Menu Toggle Button on Desktop */

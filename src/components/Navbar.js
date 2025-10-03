@@ -34,7 +34,6 @@ function Navbar() {
 
             {/* Dark Mode Toggle Button */}
             <button className="dark-mode-toggle" onClick={toggleDarkMode}>
-                {darkMode ? "⚪ Light" : "⚫ Dark"}
             </button>
 
             {/* Menu Toggle Button (Mobile) */}
