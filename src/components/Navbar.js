@@ -1,54 +1,61 @@
 // src/components/Navbar.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import logoLight from '../assets/images/logo-black.png'; // Light mode logo
-import logoDark from '../assets/images/logo-black.png';   // Dark mode logo
+import { Home, Briefcase, Folder, Workflow, Mail } from 'lucide-react'; // Modern icons
+import logoLight from '../assets/images/logo-black.png';
+import logoDark from '../assets/images/logo-black.png';
 
 function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-    };
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 767);
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
         document.body.classList.toggle('dark-mode', !darkMode);
     };
 
-    const closeMenu = () => {
-        setIsOpen(false);
-    };
+    // Detect mobile screen resizing dynamically
+    useEffect(() => {
+        const handleResize = () => setIsMobile(window.innerWidth <= 767);
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
         <nav className="navbar">
-            {/* Logo with conditional rendering based on dark mode */}
-            <a href="/" className="navbar-logo">
-                <img
-                    src={darkMode ? logoDark : logoLight} // Toggle image based on dark mode
-                    alt="My Brand Logo"
-                    style={{ width: '50px', height: 'auto' }}
-                />
-            </a>
+            {/* Desktop View */}
+            {!isMobile && (
+                <>
+                    <a href="/" className="navbar-logo">
+                        <img
+                            src={darkMode ? logoDark : logoLight}
+                            alt="My Brand Logo"
+                            style={{ width: '50px', height: 'auto' }}
+                        />
+                    </a>
 
-            {/* Dark Mode Toggle Button */}
-            <button className="dark-mode-toggle" onClick={toggleDarkMode}>
-            </button>
+                    <ul className="navbar-links">
+                        <li><a href="#hero">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#process">Process</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
 
-            {/* Menu Toggle Button (Mobile) */}
-            <button className="menu-toggle" onClick={toggleMenu}>
-                ☰
-            </button>
+                    <button className="dark-mode-toggle" onClick={toggleDarkMode}></button>
+                </>
+            )}
 
-            {/* Navbar Links */}
-            <ul className={`navbar-links ${isOpen ? 'open' : ''}`}>
-                <li><a href="#hero" onClick={closeMenu}>Home</a></li>
-                <li><a href="#services" onClick={closeMenu}>Services</a></li>
-                <li><a href="#portfolio" onClick={closeMenu}>Portfolio</a></li>
-                <li><a href="#process" onClick={closeMenu}>Process</a></li>
-                <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
-            </ul>
+            {/* Mobile Bottom Navigation */}
+            {isMobile && (
+                <ul className="navbar-links mobile-bottom-nav">
+                    <li><a href="#hero"><Home size={20} /><span>Home</span></a></li>
+                    <li><a href="#services"><Briefcase size={20} /><span>Services</span></a></li>
+                    <li><a href="#portfolio"><Folder size={20} /><span>Portfolio</span></a></li>
+                    <li><a href="#process"><Workflow size={20} /><span>Process</span></a></li>
+                    <li><a href="#contact"><Mail size={20} /><span>Contact</span></a></li>
+                </ul>
+            )}
         </nav>
     );
 }
