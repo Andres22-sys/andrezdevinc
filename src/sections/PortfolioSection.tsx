@@ -1,48 +1,112 @@
-import React from 'react';
-import './PortfolioSection.css';
+import Image from "next/image";
 
-import project1 from '../assets/images/ksinc-web.png';
-import project2 from '../assets/images/proccesingForLess.png';
-import project3 from '../assets/images/pastry-web.jpg';
-import project4 from '../assets/images/tea-web.jpg';
-import project5 from '../assets/images/restaurant-web.png';
-import project6 from '../assets/images/nexoria-web.png';
-
-interface Project {
-    image: string;
-    alt: string;
-    url: string;
-    title: string;
-    description: string;
-}
-
-const projects: Project[] = [
-    { image: project1, alt: 'K&S Ironworks', url: 'https://ksiwinc.com/', title: 'K&S Ironworks', description: 'A website for a welding company.' },
-    { image: project2, alt: 'POS Service Website', url: 'https://ccprocessingforless.com/', title: 'CC Processing For Less', description: 'A website for a Clover POS service.' },
-    { image: project3, alt: 'Huckleberry Pastry', url: 'https://pastry-web.vercel.app/', title: 'Huckleberry Pastry', description: 'A landing page for a pastry company.' },
-    { image: project4, alt: 'Tea Cozy', url: 'https://teashop-web.vercel.app/', title: 'Tea Cozy', description: 'A landing page for a coffee shop.' },
-    { image: project5, alt: 'Gericht Restaurant', url: 'https://modern-ux-ui-restaurant.vercel.app/', title: 'Gericht', description: 'A landing page for a restaurant.' },
-    { image: project6, alt: 'Nexoria Dashboard', url: 'https://nexoria-gamma.vercel.app/', title: 'Nexoria', description: 'A landing page for a financial dashboard.' },
+const projects = [
+  {
+    title: "K&S Ironworks",
+    description: "A website for a welding company.",
+    image: "/images/ksinc-web.png",
+    url: "https://ksiwinc.com/",
+  },
+  {
+    title: "CC Processing For Less",
+    description: "A website for a Clover POS service.",
+    image: "/images/proccesingForLess.png",
+    url: "https://ccprocessingforless.com/",
+  },
+  {
+    title: "Huckleberry Pastry",
+    description: "A landing page for a pastry company.",
+    image: "/images/pastry-web.jpg",
+    url: "https://pastry-web.vercel.app/",
+  },
+  {
+    title: "Tea Cozy",
+    description: "A landing page for a coffee shop.",
+    image: "/images/tea-web.jpg",
+    url: "https://teashop-web.vercel.app/",
+  },
+  {
+    title: "Gericht",
+    description: "A landing page for a restaurant.",
+    image: "/images/restaurant-web.png",
+    url: "https://modern-ux-ui-restaurant.vercel.app/",
+  },
+  {
+    title: "Nexoria",
+    description: "A landing page for a financial dashboard.",
+    image: "/images/nexoria-web.png",
+    url: "https://nexoria-gamma.vercel.app/",
+  },
 ];
 
-function PortfolioSection() {
-    return (
-        <section id="portfolio" className="portfolio">
-            <h2>Portfolio</h2>
-            <p>Check out some of the websites we&apos;ve built for our clients.</p>
-            <div className="portfolio-cards">
-                {projects.map((project) => (
-                    <div className="portfolio-card" key={project.title}>
-                        <a href={project.url} target="_blank" rel="noopener noreferrer">
-                            <img src={project.image} alt={project.alt} />
-                        </a>
-                        <h3>{project.title}</h3>
-                        <p>{project.description}</p>
-                    </div>
-                ))}
-            </div>
-        </section>
-    );
-}
+export default function PortfolioSection() {
+  return (
+    <section
+      id="portfolio"
+      className="py-24 px-6 bg-gray-50 dark:bg-bg-section-dark transition-colors duration-300"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-14">
+          <span className="inline-block text-xs font-semibold text-primary bg-primary/10 px-4 py-1.5 rounded-full uppercase tracking-wider mb-4">
+            Our Work
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Portfolio
+          </h2>
+          <p className="text-text-muted dark:text-text-dark/50 mt-3 text-sm max-w-md mx-auto">
+            Check out some of the websites we&apos;ve built for our clients.
+          </p>
+        </div>
 
-export default PortfolioSection;
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <a
+              key={project.title}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-white dark:bg-bg-dark rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
+            >
+              <div className="overflow-hidden h-52 relative">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                {/* Hover overlay */}
+                <div className="absolute inset-0 bg-primary/85 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-white font-semibold text-sm flex items-center gap-2">
+                    View Project
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div className="p-5">
+                <h3 className="text-sm font-bold text-primary mb-1">
+                  {project.title}
+                </h3>
+                <p className="text-xs text-text-muted dark:text-text-dark/60">
+                  {project.description}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
