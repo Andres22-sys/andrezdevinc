@@ -1,12 +1,8 @@
-// src/App.js
 import React from 'react';
 import './App.css';
 
-// Importing components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-// Importing sections
 import HeroSection from './sections/HeroSection';
 import ServicesSection from './sections/ServicesSection';
 import PortfolioSection from './sections/PortfolioSection';

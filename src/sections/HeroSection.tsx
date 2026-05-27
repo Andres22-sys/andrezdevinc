@@ -1,7 +1,6 @@
-// src/components/HeroSection.js
 import React from 'react';
 import './HeroSection.css';
-import heroVid from '../assets/videos/web-banner.mp4'
+import heroVid from '../assets/videos/web-banner.mp4';
 
 function HeroSection() {
     return (
@@ -12,7 +11,7 @@ function HeroSection() {
             </video>
             <div className="hero-content">
                 <h1>WELCOME TO OUR WEBSITE</h1>
-                <p>Your success is our goal. Let’s build something amazing together.</p>
+                <p>Your success is our goal. Let&apos;s build something amazing together.</p>
                 <button onClick={() => window.location.href = '#contact'}>Get Started</button>
             </div>
         </section>

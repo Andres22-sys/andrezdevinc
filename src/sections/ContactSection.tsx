@@ -1,46 +1,45 @@
-// src/sections/ContactSection.js
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import emailjs from 'emailjs-com';
 import './ContactSection.css';
 
+interface FormData {
+    name: string;
+    email: string;
+    message: string;
+}
+
 function ContactSection() {
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',
         message: '',
     });
 
-    const handleChange = (e) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         emailjs.send(
-            'service_h0io3m9',       // Replace with your actual EmailJS Service ID
-            'template_ttxugjl',      // Replace with your actual EmailJS Template ID
+            'service_h0io3m9',
+            'template_ttxugjl',
             {
-                to_name: 'Team',                 // Add a fixed name for the recipient, if needed
+                to_name: 'Team',
                 user_name: formData.name,
                 user_email: formData.email,
                 user_message: formData.message,
             },
-            'Q6uKZ6hijGSO1n0im'           // Replace with your actual EmailJS User ID
+            'Q6uKZ6hijGSO1n0im'
         )
-        .then((response) => {
-            console.log('SUCCESS!', response.status, response.text);
-            alert("Message sent successfully!");
-            setFormData({
-                name: '',
-                email: '',
-                message: '',
-            });
+        .then(() => {
+            alert('Message sent successfully!');
+            setFormData({ name: '', email: '', message: '' });
         })
-        .catch((error) => {
-            console.error('FAILED...', error);
-            alert("Failed to send message. Please try again later.");
+        .catch(() => {
+            alert('Failed to send message. Please try again later.');
         });
     };
 
@@ -57,7 +56,7 @@ function ContactSection() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        autoComplete="name" /* Enables autofill for user's full name */
+                        autoComplete="name"
                     />
                 </label>
                 <label>
@@ -68,7 +67,7 @@ function ContactSection() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        autoComplete="email" /* Enables autofill for user's email address */
+                        autoComplete="email"
                     />
                 </label>
                 <label>
@@ -78,12 +77,11 @@ function ContactSection() {
                         value={formData.message}
                         onChange={handleChange}
                         required
-                        autoComplete="off" /* Disables autofill for free-text fields */
-                    ></textarea>
+                        autoComplete="off"
+                    />
                 </label>
                 <button type="submit" className="submit-button">Send Message</button>
             </form>
-
         </section>
     );
 }

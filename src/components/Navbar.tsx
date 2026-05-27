@@ -1,7 +1,6 @@
-// src/components/Navbar.js
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { Home, Briefcase, Folder, Workflow, Mail } from 'lucide-react'; // Modern icons
+import { Home, Briefcase, Folder, Workflow, Mail } from 'lucide-react';
 import logoLight from '../assets/images/logo-black.png';
 import logoDark from '../assets/images/logo-black.png';
 
@@ -14,7 +13,6 @@ function Navbar() {
         document.body.classList.toggle('dark-mode', !darkMode);
     };
 
-    // Detect mobile screen resizing dynamically
     useEffect(() => {
         const handleResize = () => setIsMobile(window.innerWidth <= 767);
         window.addEventListener('resize', handleResize);
@@ -23,7 +21,6 @@ function Navbar() {
 
     return (
         <nav className="navbar">
-            {/* Desktop View */}
             {!isMobile && (
                 <>
                     <a href="/" className="navbar-logo">
@@ -46,7 +43,6 @@ function Navbar() {
                 </>
             )}
 
-            {/* Mobile Bottom Navigation */}
             {isMobile && (
                 <ul className="navbar-links mobile-bottom-nav">
                     <li><a href="#hero"><Home size={20} /><span>Home</span></a></li>

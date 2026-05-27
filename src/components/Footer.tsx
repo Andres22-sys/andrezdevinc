@@ -1,4 +1,3 @@
-// src/components/Footer.js
 import React from 'react';
 import './Footer.css';
 
@@ -7,17 +6,17 @@ function Footer() {
         <footer className="footer">
             <p>
                 Follow us on&nbsp;
-                <a 
-                    href="https://www.instagram.com/andrezdevinc/" 
-                    target="_blank" 
+                <a
+                    href="https://www.instagram.com/andrezdevinc/"
+                    target="_blank"
                     rel="noopener noreferrer"
                 >
                     Instagram
-                </a> 
-                &nbsp;|&nbsp; 
-                <a 
-                    href="https://www.pinterest.com/AndrezDev/" 
-                    target="_blank" 
+                </a>
+                &nbsp;|&nbsp;
+                <a
+                    href="https://www.pinterest.com/AndrezDev/"
+                    target="_blank"
                     rel="noopener noreferrer"
                 >
                     Pinterest
